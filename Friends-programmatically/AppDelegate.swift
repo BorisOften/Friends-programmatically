@@ -11,6 +11,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let loginViewController = LoginViewController()
+    var navigationController: UINavigationController?
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -18,9 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         
-        window?.rootViewController = LoginViewController()
+        navigationController = UINavigationController(rootViewController: loginViewController)
+        
+        window?.rootViewController = navigationController
         
         return true
+    }
+}
+
+// stying the navigation controller
+extension AppDelegate {
+    func style(){
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 

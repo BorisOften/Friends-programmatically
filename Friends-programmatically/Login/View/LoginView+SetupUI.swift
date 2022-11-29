@@ -29,7 +29,7 @@ extension LoginViewController {
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Login", for: .normal)
         loginButton.configuration = .filled()
-        //loginButton.backgroundColor = .bl
+        loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         
     }
     
@@ -66,5 +66,15 @@ extension LoginViewController {
             loginButton.leadingAnchor.constraint(equalTo: loginStackView.leadingAnchor),
             loginButton.trailingAnchor.constraint(equalTo:  loginStackView.trailingAnchor)
         ])
+    }
+}
+
+
+// Action
+extension LoginViewController{
+    
+    @objc func loginButtonPressed() {
+        let homeScreenVc = HomeScreenViewController()
+        navigationController?.pushViewController(homeScreenVc, animated: true)
     }
 }
